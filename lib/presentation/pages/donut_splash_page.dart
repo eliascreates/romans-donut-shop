@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../core/constants/constants.dart';
-import 'donut_home_page.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -36,11 +35,7 @@ class _SplashPageState extends State<SplashPage>
   @override
   Widget build(BuildContext context) {
     Future.delayed(const Duration(seconds: 5), () {
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(
-          builder: (context) => const DonutHomePage(),
-        ),
-      );
+      Utils.mainAppNav.currentState?.pushReplacementNamed('/main');
     });
     return Scaffold(
       backgroundColor: AppColors.mainColor,

@@ -1,4 +1,8 @@
+import 'package:exampledonutapp/core/constants/utils.dart';
+import 'package:exampledonutapp/presentation/pages/home_page.dart';
+import 'package:exampledonutapp/presentation/providers/donut_bottom_bar_selection_service.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'core/constants/constants.dart' show AppColors;
 import 'presentation/pages/pages.dart' show SplashPage;
 
@@ -11,17 +15,28 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Donut App',
-      theme: ThemeData(
-        primaryColor: AppColors.mainColor,
-        appBarTheme:
-            const AppBarTheme(backgroundColor: AppColors.secondaryColor),
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: false,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => DonutBottomBarSelectionService()),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Donut App',
+        theme: ThemeData(
+          primaryColor: AppColors.mainColor,
+          appBarTheme:
+              const AppBarTheme(backgroundColor: AppColors.secondaryColor),
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: false,
+        ),
+        initialRoute: '/',
+        navigatorKey: Utils.mainAppNav,
+        routes: {
+          '/': (context) => const SplashPage(),
+          '/main': (context) => const HomePage()
+        },
+        // home: const SplashPage(),
       ),
-      home: const SplashPage(),
     );
   }
 }
