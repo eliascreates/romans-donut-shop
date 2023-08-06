@@ -53,6 +53,7 @@ class DonutCard extends StatelessWidget {
                 child: Text(
                   "R${donut.price.toStringAsFixed(2)}",
                   style: const TextStyle(
+                    color: Colors.white,
                     fontSize: 12,
                     fontWeight: FontWeight.bold,
                   ),
