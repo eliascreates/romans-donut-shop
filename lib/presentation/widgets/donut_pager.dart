@@ -35,7 +35,7 @@ class _DonutPagerState extends State<DonutPager> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 350,
+      height: 250,
       child: Column(
         children: [
           Expanded(

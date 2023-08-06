@@ -19,4 +19,8 @@ class Utils {
   static const String donutPromo1 = 'assets/images/donut_promo1.png';
   static const String donutPromo2 = 'assets/images/donut_promo2.png';
   static const String donutPromo3 = 'assets/images/donut_promo3.png';
+
+
+
+  
 }
