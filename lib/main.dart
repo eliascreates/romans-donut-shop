@@ -35,9 +35,9 @@ class MyApp extends StatelessWidget {
         initialRoute: '/',
         navigatorKey: Utils.mainAppNav,
         routes: {
-          // '/': (context) => const SplashPage(),
-          '/': (context) => const DonutDetailsPage(),
-          '/main': (context) => const HomePage()
+          '/': (context) => const SplashPage(),
+          '/main': (context) => const HomePage(),
+          '/details': (context) => const DonutDetailsPage(),
         },
         // home: const SplashPage(),
       ),

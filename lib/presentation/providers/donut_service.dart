@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:exampledonutapp/core/constants/constants.dart';
 import 'package:exampledonutapp/models/donut_model.dart';
 import 'package:flutter/material.dart';
 
@@ -13,6 +14,7 @@ class DonutService extends ChangeNotifier {
 
   late String selectedDonutType;
   List<DonutModel> filteredDonuts = [];
+  late DonutModel selectedDonut;
 
   DonutService() {
     selectedDonutType = filterBarItems.first.id;
@@ -25,5 +27,14 @@ class DonutService extends ChangeNotifier {
     filteredDonuts =
         DonutModel.donuts.where((donut) => donut.type == type).toList();
     notifyListeners();
+  }
+
+  DonutModel getSelectedDonut() {
+    return selectedDonut;
+  }
+
+  void onDonutSelected(DonutModel donut) {
+    selectedDonut = donut;
+    Utils.mainAppNav.currentState?.pushNamed('/details');
   }
 }
