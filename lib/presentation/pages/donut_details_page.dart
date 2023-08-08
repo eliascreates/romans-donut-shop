@@ -1,7 +1,8 @@
-import 'package:exampledonutapp/models/donut_model.dart';
-import 'package:exampledonutapp/presentation/providers/donut_service.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import 'package:exampledonutapp/models/donut_model.dart';
+import 'package:exampledonutapp/presentation/providers/donut_service.dart';
 
 import '../../core/constants/constants.dart';
 
@@ -12,7 +13,30 @@ class DonutDetailsPage extends StatefulWidget {
   State<DonutDetailsPage> createState() => _DonutDetailsPageState();
 }
 
-class _DonutDetailsPageState extends State<DonutDetailsPage> {
+class _DonutDetailsPageState extends State<DonutDetailsPage>
+    with SingleTickerProviderStateMixin {
+  late AnimationController controller;
+  late Animation<double> rotationAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    controller = AnimationController(
+      duration: const Duration(seconds: 30),
+      vsync: this,
+    )..repeat();
+
+    rotationAnimation = Tween<double>(begin: 0, end: 1).animate(
+      CurvedAnimation(parent: controller, curve: Curves.linear),
+    );
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     DonutModel selectedDonut = context.select(
@@ -20,7 +44,11 @@ class _DonutDetailsPageState extends State<DonutDetailsPage> {
     );
     return Scaffold(
       appBar: AppBar(
-        iconTheme: const IconThemeData(color: AppColors.mainColor),
+        leading: IconButton(
+          onPressed: () => Utils.mainAppNav.currentState?.pop(),
+          icon: const Icon(Icons.arrow_back_ios_rounded),
+        ),
+        iconTheme: const IconThemeData(color: AppColors.mainDarkColor),
         backgroundColor: Colors.transparent,
         elevation: 0,
         centerTitle: true,
@@ -34,10 +62,16 @@ class _DonutDetailsPageState extends State<DonutDetailsPage> {
               Positioned(
                 top: -40,
                 right: -120,
-                child: Image.asset(
-                  selectedDonut.imgSrc,
-                  width: MediaQuery.sizeOf(context).width * 1.2,
-                  fit: BoxFit.contain,
+                child: RotationTransition(
+                  turns: rotationAnimation,
+                  child: Hero(
+                    tag: selectedDonut.name,
+                    child: Image.asset(
+                      selectedDonut.imgSrc,
+                      width: MediaQuery.sizeOf(context).width * 1.2,
+                      fit: BoxFit.contain,
+                    ),
+                  ),
                 ),
               ),
             ],

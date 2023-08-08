@@ -71,11 +71,14 @@ class DonutCard extends StatelessWidget {
           ),
           Align(
             alignment: Alignment.topCenter,
-            child: Image.asset(
-              donut.imgSrc,
-              width: 150,
-              height: 150,
-              fit: BoxFit.contain,
+            child: Hero(
+              tag: donut.name,
+              child: Image.asset(
+                donut.imgSrc,
+                width: 150,
+                height: 150,
+                fit: BoxFit.contain,
+              ),
             ),
           )
         ],
