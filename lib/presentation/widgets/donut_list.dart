@@ -31,6 +31,7 @@ class _DonutListState extends State<DonutList> {
   @override
   Widget build(BuildContext context) {
     return AnimatedList(
+      physics: const BouncingScrollPhysics(),
       key: _key,
       initialItemCount: insertedItems.length,
       scrollDirection: Axis.horizontal,

@@ -1,4 +1,5 @@
 import 'package:exampledonutapp/core/constants/utils.dart';
+import 'package:exampledonutapp/presentation/pages/donut_details_page.dart';
 import 'package:exampledonutapp/presentation/pages/home_page.dart';
 import 'package:exampledonutapp/presentation/providers/donut_bottom_bar_selection_service.dart';
 import 'package:exampledonutapp/presentation/providers/donut_service.dart';
@@ -35,7 +36,8 @@ class MyApp extends StatelessWidget {
         navigatorKey: Utils.mainAppNav,
         routes: {
           '/': (context) => const SplashPage(),
-          '/main': (context) => const HomePage()
+          '/main': (context) => const HomePage(),
+          '/details': (context) => const DonutDetailsPage(),
         },
         // home: const SplashPage(),
       ),

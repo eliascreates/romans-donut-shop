@@ -13,7 +13,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       drawer: const Drawer(child: DonutSideMenu()),
       appBar: AppBar(
-        iconTheme: const IconThemeData(color: AppColors.mainColor),
+        iconTheme: const IconThemeData(color: AppColors.mainDarkColor),
         backgroundColor: Colors.transparent,
         elevation: 0,
         centerTitle: true,
