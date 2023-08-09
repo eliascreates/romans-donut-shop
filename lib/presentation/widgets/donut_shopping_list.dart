@@ -5,22 +5,17 @@ import 'package:provider/provider.dart';
 
 import 'donut_shopping_list_row.dart';
 
-class DonutShoppingList extends StatefulWidget {
+class DonutShoppingList extends StatelessWidget {
   const DonutShoppingList({super.key, required this.donutCart});
   final List<DonutModel> donutCart;
 
   @override
-  State<DonutShoppingList> createState() => _DonutShoppingListState();
-}
-
-class _DonutShoppingListState extends State<DonutShoppingList> {
-  @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: widget.donutCart.length,
+      itemCount: donutCart.length,
       physics: const BouncingScrollPhysics(),
       itemBuilder: (context, index) {
-        final currentDonut = widget.donutCart[index];
+        final currentDonut = donutCart[index];
 
         return DonutShoppingListRow(
           onDeleteRow: () => context

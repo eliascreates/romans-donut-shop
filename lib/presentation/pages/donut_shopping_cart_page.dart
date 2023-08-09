@@ -80,7 +80,7 @@ class _DonutShoppingCartPageState extends State<DonutShoppingCartPage>
                   );
                 }
 
-                return DonutShoppingList(donutCart: cartService.cartDonuts);
+                return DonutShoppingList(donutCart: cartService.cartDonuts,);
               },
             ),
           ),
