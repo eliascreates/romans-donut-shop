@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -21,13 +19,15 @@ class DonutBottomBar extends StatelessWidget {
             children: [
               IconButton(
                 onPressed: () => bNavBarService.setTabSelection('main'),
+                tooltip: 'Home',
                 color: bNavBarService.tabSelection == 'main'
                     ? AppColors.mainDarkColor
                     : AppColors.mainColor,
                 icon: const Icon(Icons.trip_origin),
               ),
               IconButton(
-                onPressed: () => bNavBarService.setTabSelection('favorites'),
+                onPressed: () => bNavBarService.setTabSelection('Favorites'),
+                tooltip: 'favorites',
                 color: bNavBarService.tabSelection == 'favorites'
                     ? AppColors.mainDarkColor
                     : AppColors.mainColor,
@@ -35,6 +35,7 @@ class DonutBottomBar extends StatelessWidget {
               ),
               IconButton(
                 onPressed: () => bNavBarService.setTabSelection('shoppingcart'),
+                tooltip: 'Shopping Cart',
                 color: bNavBarService.tabSelection == 'shoppingcart'
                     ? AppColors.mainDarkColor
                     : AppColors.mainColor,

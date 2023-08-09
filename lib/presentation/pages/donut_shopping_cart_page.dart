@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 
-class DonutShoppingcartPage extends StatelessWidget {
-  const DonutShoppingcartPage({super.key});
+class DonutShoppingCartPage extends StatelessWidget {
+  const DonutShoppingCartPage({super.key});
 
   @override
   Widget build(BuildContext context) {

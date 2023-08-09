@@ -1,3 +1,5 @@
+import 'package:exampledonutapp/presentation/providers/donut_shopping_cart_service.dart';
+import 'package:exampledonutapp/presentation/widgets/donut_shopping_cart_badge.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -46,8 +48,10 @@ class _DonutDetailsPageState extends State<DonutDetailsPage>
       appBar: AppBar(
         leading: IconButton(
           onPressed: () => Utils.mainAppNav.currentState?.pop(),
+          tooltip: 'Back',
           icon: const Icon(Icons.arrow_back_ios_rounded),
         ),
+        actions: const [DonutShoppingCartBadge()],
         iconTheme: const IconThemeData(color: AppColors.mainDarkColor),
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -122,28 +126,42 @@ class _DonutDetailsPageState extends State<DonutDetailsPage>
                     ),
                   ),
                   const SizedBox(height: 20),
-                  Text(selectedDonut.description),
+                  Text(
+                    selectedDonut.description,
+                    style: TextStyle(
+                        color: Theme.of(context).textTheme.bodySmall?.color),
+                  ),
                   const SizedBox(height: 20),
-                  ElevatedButton.icon(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 10, horizontal: 20),
-                        elevation: 0,
-                        fixedSize:
-                            Size.fromWidth(MediaQuery.sizeOf(context).width),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(50)),
-                        backgroundColor: AppColors.mainlightDarkColor),
-                    icon: const Icon(
-                      Icons.shopping_cart,
-                      color: AppColors.mainDarkColor,
-                    ),
-                    label: const Text(
-                      "Add To Card",
-                      style: TextStyle(color: AppColors.mainDarkColor),
-                    ),
-                  )
+                  Consumer<DonutShoppingCartService>(
+                      builder: (context, donutCartService, child) {
+                    final bool isInCart =
+                        donutCartService.isDonutInCart(selectedDonut);
+                    final buttonText =
+                        isInCart ? "Added To Cart" : "Add To Cart";
+
+                    return ElevatedButton.icon(
+                      onPressed: isInCart
+                          ? null
+                          : () => donutCartService.addToCart(selectedDonut),
+                      style: ElevatedButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 10, horizontal: 20),
+                          elevation: 0,
+                          fixedSize:
+                              Size.fromWidth(MediaQuery.sizeOf(context).width),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(50)),
+                          backgroundColor: AppColors.mainlightDarkColor),
+                      icon: Icon(
+                        isInCart ? Icons.check : Icons.shopping_cart,
+                        color: AppColors.mainDarkColor,
+                      ),
+                      label: Text(
+                        buttonText,
+                        style: const TextStyle(color: AppColors.mainDarkColor),
+                      ),
+                    );
+                  })
                 ],
               ),
             ),

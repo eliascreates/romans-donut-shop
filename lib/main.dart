@@ -3,6 +3,7 @@ import 'package:exampledonutapp/presentation/pages/donut_details_page.dart';
 import 'package:exampledonutapp/presentation/pages/home_page.dart';
 import 'package:exampledonutapp/presentation/providers/donut_bottom_bar_selection_service.dart';
 import 'package:exampledonutapp/presentation/providers/donut_service.dart';
+import 'package:exampledonutapp/presentation/providers/donut_shopping_cart_service.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'core/constants/constants.dart' show AppColors;
@@ -20,7 +21,8 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => DonutBottomBarSelectionService()),
-        ChangeNotifierProvider(create: (_) => DonutService())
+        ChangeNotifierProvider(create: (_) => DonutService()),
+        ChangeNotifierProvider(create: (_) => DonutShoppingCartService()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
