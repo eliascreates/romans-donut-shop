@@ -84,6 +84,49 @@ class _DonutShoppingCartPageState extends State<DonutShoppingCartPage>
               },
             ),
           ),
+          Consumer<DonutShoppingCartService>(
+            builder: (context, cartService, state) {
+              final totalPrice = cartService.getTotalCartPrice();
+              final isCartEmpty = cartService.cartDonuts.isEmpty;
+
+              return Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  cartService.cartDonuts.isEmpty
+                      ? const SizedBox()
+                      : Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text(
+                              'Total',
+                              style: TextStyle(color: AppColors.mainDarkColor),
+                            ),
+                            Text(
+                              "R${totalPrice.toStringAsFixed(2)}",
+                              style: textTheme.headlineSmall?.copyWith(
+                                color: AppColors.mainDarkColor,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                  ElevatedButton.icon(
+                    onPressed:
+                        isCartEmpty ? null : () => cartService.clearDonutCart(),
+                    style: ElevatedButton.styleFrom(
+                      foregroundColor: AppColors.mainDarkColor,
+                      backgroundColor: AppColors.mainlightDarkColor,
+                      elevation: 0,
+                      shape: const StadiumBorder(),
+                    ),
+                    icon: const Icon(Icons.delete_forever),
+                    label: const Text('Clear Cart'),
+                  )
+                ],
+              );
+            },
+          )
         ],
       ),
     );

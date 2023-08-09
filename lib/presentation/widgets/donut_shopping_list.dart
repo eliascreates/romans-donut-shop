@@ -18,6 +18,7 @@ class _DonutShoppingListState extends State<DonutShoppingList> {
   Widget build(BuildContext context) {
     return ListView.builder(
       itemCount: widget.donutCart.length,
+      physics: const BouncingScrollPhysics(),
       itemBuilder: (context, index) {
         final currentDonut = widget.donutCart[index];
 
