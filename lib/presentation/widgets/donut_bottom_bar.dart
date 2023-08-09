@@ -26,7 +26,7 @@ class DonutBottomBar extends StatelessWidget {
                 icon: const Icon(Icons.trip_origin),
               ),
               IconButton(
-                onPressed: () => bNavBarService.setTabSelection('Favorites'),
+                onPressed: () => bNavBarService.setTabSelection('favorites'),
                 tooltip: 'favorites',
                 color: bNavBarService.tabSelection == 'favorites'
                     ? AppColors.mainDarkColor

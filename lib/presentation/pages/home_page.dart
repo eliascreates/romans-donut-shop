@@ -1,3 +1,4 @@
+import 'package:exampledonutapp/presentation/pages/donut_shopping_cart_page.dart';
 import 'package:flutter/material.dart';
 
 import 'package:exampledonutapp/core/constants/constants.dart';
@@ -36,10 +37,10 @@ class HomePage extends StatelessWidget {
                     page = const Center(child: Text('favorites'));
                     break;
                   case '/shoppingcart':
-                    page = const Center(child: Text('shopping cart'));
+                    page = const DonutShoppingCartPage();
                     break;
                   default:
-                    page = const Center(child: Text('main'));
+                    page = const Center(child: Text('Error Route'));
                     break;
                 }
 
