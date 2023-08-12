@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 
 class DonutFavorites extends StatelessWidget {
@@ -7,6 +5,17 @@ class DonutFavorites extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Center(
+      child: Text(
+        'Favorites\n🚧',
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          fontSize: 50,
+          fontWeight: FontWeight.w400,
+          color: Colors.grey.shade600,
+          letterSpacing: 1.5,
+        ),
+      ),
+    );
   }
 }

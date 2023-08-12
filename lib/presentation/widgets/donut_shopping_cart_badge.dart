@@ -1,7 +1,8 @@
-import 'package:exampledonutapp/core/constants/constants.dart';
-import 'package:exampledonutapp/presentation/providers/donut_shopping_cart_service.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import 'package:exampledonutapp/core/constants/constants.dart';
+import 'package:exampledonutapp/presentation/providers/donut_shopping_cart_service.dart';
 
 class DonutShoppingCartBadge extends StatelessWidget {
   const DonutShoppingCartBadge({super.key});

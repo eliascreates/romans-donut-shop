@@ -1,6 +1,7 @@
+import 'package:flutter/material.dart';
+
 import 'package:exampledonutapp/core/constants/constants.dart';
 import 'package:exampledonutapp/models/donut_model.dart';
-import 'package:flutter/material.dart';
 
 class DonutShoppingListRow extends StatelessWidget {
   const DonutShoppingListRow(

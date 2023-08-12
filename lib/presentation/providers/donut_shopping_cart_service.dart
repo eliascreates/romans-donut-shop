@@ -1,5 +1,6 @@
-import 'package:exampledonutapp/models/donut_model.dart';
 import 'package:flutter/material.dart';
+
+import 'package:exampledonutapp/models/donut_model.dart';
 
 class DonutShoppingCartService extends ChangeNotifier {
   List<DonutModel> cartDonuts = [];

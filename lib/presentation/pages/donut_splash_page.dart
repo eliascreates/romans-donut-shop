@@ -11,8 +11,8 @@ class SplashPage extends StatefulWidget {
 
 class _SplashPageState extends State<SplashPage>
     with SingleTickerProviderStateMixin {
-  AnimationController? donutController;
-  Animation<double>? rotationAnimation;
+  late AnimationController donutController;
+  late Animation<double> rotationAnimation;
 
   @override
   void initState() {
@@ -22,19 +22,19 @@ class _SplashPageState extends State<SplashPage>
           ..repeat();
 
     rotationAnimation = Tween<double>(begin: 0, end: 1).animate(
-      CurvedAnimation(parent: donutController!, curve: Curves.linear),
+      CurvedAnimation(parent: donutController, curve: Curves.linear),
     );
   }
 
   @override
   void dispose() {
-    donutController!.dispose();
+    donutController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    Future.delayed(const Duration(seconds: 5), () {
+    Future.delayed(const Duration(seconds: 2), () {
       Utils.mainAppNav.currentState?.pushReplacementNamed('/main');
     });
     return Scaffold(
@@ -45,7 +45,7 @@ class _SplashPageState extends State<SplashPage>
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             RotationTransition(
-              turns: rotationAnimation!,
+              turns: rotationAnimation,
               child: Image.asset(Utils.donutLogoWhiteNoText,
                   width: 100, height: 100),
             ),

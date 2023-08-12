@@ -1,7 +1,8 @@
-import 'package:exampledonutapp/models/donut_model.dart';
-import 'package:exampledonutapp/presentation/providers/donut_service.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import 'package:exampledonutapp/models/donut_model.dart';
+import 'package:exampledonutapp/presentation/providers/donut_service.dart';
 
 import '../../core/constants/constants.dart';
 

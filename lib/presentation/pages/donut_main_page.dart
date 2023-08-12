@@ -1,10 +1,8 @@
-// import 'package:exampledonutapp/core/constants/colors.dart';
-// import 'package:exampledonutapp/presentation/providers/donut_service.dart';
-import 'package:exampledonutapp/presentation/providers/donut_service.dart';
-import 'package:exampledonutapp/presentation/widgets/donut_list.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'package:exampledonutapp/presentation/providers/donut_service.dart';
+import 'package:exampledonutapp/presentation/widgets/donut_list.dart';
 
 import '../widgets/widgets.dart';
 

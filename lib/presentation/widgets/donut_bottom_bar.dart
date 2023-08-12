@@ -1,6 +1,7 @@
-import 'package:exampledonutapp/presentation/providers/donut_shopping_cart_service.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import 'package:exampledonutapp/presentation/providers/donut_shopping_cart_service.dart';
 
 import '../../core/constants/constants.dart';
 import '../providers/donut_bottom_bar_selection_service.dart';
@@ -19,17 +20,18 @@ class DonutBottomBar extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               IconButton(
-                onPressed: () => bNavBarService.setTabSelection('main'),
-                tooltip: 'Home',
-                color: bNavBarService.tabSelection == 'main'
+                onPressed: () => bNavBarService.setTabSelection(AppRoutes.main),
+                tooltip: Strings.homeToolTip,
+                color: bNavBarService.tabSelection == AppRoutes.main
                     ? AppColors.mainDarkColor
                     : AppColors.mainColor,
                 icon: const Icon(Icons.trip_origin),
               ),
               IconButton(
-                onPressed: () => bNavBarService.setTabSelection('favorites'),
-                tooltip: 'favorites',
-                color: bNavBarService.tabSelection == 'favorites'
+                onPressed: () =>
+                    bNavBarService.setTabSelection(AppRoutes.favorites),
+                tooltip: Strings.favoritesToolTip,
+                color: bNavBarService.tabSelection == AppRoutes.favorites
                     ? AppColors.mainDarkColor
                     : AppColors.mainColor,
                 icon: const Icon(Icons.favorite),
@@ -44,7 +46,8 @@ class DonutBottomBar extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: cartItems == 0
                           ? null
-                          : bNavBarService.tabSelection == 'shoppingcart'
+                          : bNavBarService.tabSelection ==
+                                  AppRoutes.shoppingcart
                               ? AppColors.mainDarkColor
                               : AppColors.mainColor,
                       borderRadius: BorderRadius.circular(50),
@@ -63,15 +66,16 @@ class DonutBottomBar extends StatelessWidget {
                             ),
                           ),
                         IconButton(
-                          onPressed: () =>
-                              bNavBarService.setTabSelection('shoppingcart'),
-                          tooltip: 'Shopping Cart',
+                          onPressed: () => bNavBarService
+                              .setTabSelection(AppRoutes.shoppingcart),
+                          tooltip: Strings.shoppingCartToolTip,
                           style: IconButton.styleFrom(
                             padding: EdgeInsets.zero,
                           ),
                           color: cartItems > 0
                               ? Colors.white
-                              : bNavBarService.tabSelection == 'shoppingcart'
+                              : bNavBarService.tabSelection ==
+                                      AppRoutes.shoppingcart
                                   ? AppColors.mainDarkColor
                                   : AppColors.mainColor,
                           icon: const Icon(Icons.shopping_cart),
