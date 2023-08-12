@@ -1,10 +1,10 @@
-import 'package:exampledonutapp/presentation/providers/donut_shopping_cart_service.dart';
-import 'package:exampledonutapp/presentation/widgets/donut_shopping_cart_badge.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:exampledonutapp/models/donut_model.dart';
 import 'package:exampledonutapp/presentation/providers/donut_service.dart';
+import 'package:exampledonutapp/presentation/providers/donut_shopping_cart_service.dart';
+import 'package:exampledonutapp/presentation/widgets/donut_shopping_cart_badge.dart';
 
 import '../../core/constants/constants.dart';
 
@@ -115,7 +115,9 @@ class _DonutDetailsPageState extends State<DonutDetailsPage>
                   const SizedBox(height: 10),
                   Container(
                     padding: const EdgeInsets.symmetric(
-                        vertical: 10, horizontal: 20),
+                      vertical: KValues.defaultPadding / 2,
+                      horizontal: KValues.defaultPadding,
+                    ),
                     decoration: BoxDecoration(
                       color: AppColors.mainDarkColor,
                       borderRadius: BorderRadius.circular(20),
@@ -136,8 +138,9 @@ class _DonutDetailsPageState extends State<DonutDetailsPage>
                       builder: (context, donutCartService, child) {
                     final bool isInCart =
                         donutCartService.isDonutInCart(selectedDonut);
-                    final buttonText =
-                        isInCart ? "Added To Cart" : "Add To Cart";
+                    final buttonText = isInCart
+                        ? Strings.buttonAddedText
+                        : Strings.buttonAddText;
 
                     return ElevatedButton.icon(
                       onPressed: isInCart
@@ -145,7 +148,9 @@ class _DonutDetailsPageState extends State<DonutDetailsPage>
                           : () => donutCartService.addToCart(selectedDonut),
                       style: ElevatedButton.styleFrom(
                           padding: const EdgeInsets.symmetric(
-                              vertical: 10, horizontal: 20),
+                            vertical: KValues.defaultPadding / 2,
+                            horizontal: KValues.defaultPadding,
+                          ),
                           elevation: 0,
                           fixedSize:
                               Size.fromWidth(MediaQuery.sizeOf(context).width),

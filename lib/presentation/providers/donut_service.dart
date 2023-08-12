@@ -1,7 +1,7 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:flutter/material.dart';
+
 import 'package:exampledonutapp/core/constants/constants.dart';
 import 'package:exampledonutapp/models/donut_model.dart';
-import 'package:flutter/material.dart';
 
 import '../widgets/donut_filter_bar.dart' show DonutFilterBarItem;
 

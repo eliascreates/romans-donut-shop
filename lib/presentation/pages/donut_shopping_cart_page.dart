@@ -1,8 +1,9 @@
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
 import 'package:exampledonutapp/core/constants/constants.dart';
 import 'package:exampledonutapp/presentation/providers/donut_shopping_cart_service.dart';
 import 'package:exampledonutapp/presentation/widgets/widgets.dart';
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class DonutShoppingCartPage extends StatefulWidget {
   const DonutShoppingCartPage({super.key});
@@ -69,7 +70,7 @@ class _DonutShoppingCartPageState extends State<DonutShoppingCartPage>
                           ),
                           const SizedBox(height: 20),
                           Text(
-                            "You don't have any on your cart yet!",
+                            Strings.cartEmptyText,
                             textAlign: TextAlign.center,
                             style: textTheme.titleMedium
                                 ?.copyWith(color: textColor),
@@ -121,7 +122,7 @@ class _DonutShoppingCartPageState extends State<DonutShoppingCartPage>
                       shape: const StadiumBorder(),
                     ),
                     icon: const Icon(Icons.delete_forever),
-                    label: const Text('Clear Cart'),
+                    label: const Text(Strings.buttonClearText),
                   )
                 ],
               );

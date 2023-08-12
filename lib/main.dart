@@ -1,11 +1,13 @@
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
 import 'package:exampledonutapp/core/constants/utils.dart';
 import 'package:exampledonutapp/presentation/pages/donut_details_page.dart';
 import 'package:exampledonutapp/presentation/pages/home_page.dart';
 import 'package:exampledonutapp/presentation/providers/donut_bottom_bar_selection_service.dart';
 import 'package:exampledonutapp/presentation/providers/donut_service.dart';
 import 'package:exampledonutapp/presentation/providers/donut_shopping_cart_service.dart';
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+
 import 'core/constants/constants.dart' show AppColors;
 import 'presentation/pages/pages.dart' show SplashPage;
 
@@ -41,7 +43,6 @@ class MyApp extends StatelessWidget {
           '/main': (context) => const HomePage(),
           '/details': (context) => const DonutDetailsPage(),
         },
-        // home: const SplashPage(),
       ),
     );
   }
