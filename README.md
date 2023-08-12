@@ -41,7 +41,6 @@ Here are some screenshots of the app to give you a sneak peek:
 ## Contribution
 Feel free to contribute to this project by opening issues or pull requests.
 
-***
 ## Getting Started
 This project is a starting point for a Flutter application.
 
